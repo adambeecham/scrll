@@ -1,0 +1,10 @@
+.statements {
+	background: $black;
+}
+
+.statements-group {
+	&:nth-child(2) {
+		height: 100vh;
+		overflow: hidden;
+	}
+}

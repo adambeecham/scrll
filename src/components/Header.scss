@@ -1,0 +1,28 @@
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+
+	.inner {
+		position: relative;
+		@include container;
+	}
+
+	.brand {
+		position: absolute;
+		top: c(30px);
+		left: 0;
+		display: block;
+		width: c(174px);
+		height: auto;
+		opacity: 0;
+		display: block;
+
+		[data-el="circle"] {
+			stroke-dasharray: 100;
+			stroke-dashoffset: 100;
+		}
+	}
+}

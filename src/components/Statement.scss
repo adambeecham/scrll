@@ -1,0 +1,107 @@
+@use "sass:list";
+
+.statement {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: c(60px) 0;
+
+	@for $i from 0 through 12 {
+		$color-index: ($i % list.length($colors)) + 1;
+
+		&[data-index="#{$i}"] {
+			span {
+				background: list.nth($colors, $color-index);
+			}
+		}
+	}
+
+	&:nth-child(9n-8) {
+		padding: c(192px) 0 0;
+		z-index: 2;
+
+		.rotate {
+			transform: rotate(-10.7deg);
+		}
+	}
+
+	&:nth-child(9n-7) {
+		padding: c(228px) 0 0;
+
+		.rotate {
+			transform: rotate(7.8deg);
+		}
+	}
+
+	&:nth-child(9n-6) {
+		padding: c(144px) 0 0;
+		z-index: 2;
+
+		.rotate {
+			transform: rotate(9deg);
+		}
+	}
+
+	&:nth-child(9n-5) {
+		padding: c(156px) 0 0;
+
+		.rotate {
+			transform: rotate(-4.4deg);
+		}
+	}
+
+	&:nth-child(9n-4) {
+		padding: c(360px) 0 0;
+
+		.rotate {
+			transform: rotate(-13.6deg);
+		}
+	}
+
+	&:nth-child(9n-3) {
+		padding: c(24px) 0 0;
+
+		.rotate {
+			transform: rotate(9.9deg);
+		}
+	}
+
+	&:nth-child(9n-2) {
+		padding: c(360px) 0 0;
+
+		.rotate {
+			transform: rotate(-3deg);
+		}
+	}
+
+	&:nth-child(9n-1) {
+		padding: c(240px) 0 0;
+
+		.rotate {
+			transform: rotate(6.8deg);
+		}
+	}
+
+	&:nth-child(9n) {
+		padding: 0 0 c(180px);
+
+		.rotate {
+			transform: rotate(-9deg);
+		}
+	}
+
+	.rotate {
+		overflow: hidden;
+	}
+
+	span {
+		@include heading;
+		font-size: c(96px);
+		color: $black;
+		opacity: 0;
+		display: block;
+		padding: c(24px) c(48px);
+		white-space: nowrap;
+		will-change: transform;
+	}
+}

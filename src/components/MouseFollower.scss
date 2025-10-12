@@ -1,0 +1,44 @@
+.mouse {
+	position: fixed;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	transition: opacity 0.3s;
+	z-index: 9999;
+
+	&:after {
+		content: ' ';
+		display: block;
+		border-radius: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&.cursor {
+		&:after {
+			width: 12px;
+			height: 12px;
+			background: $white;
+		}
+	}
+
+	&.follower {
+		&:after {
+			content: ' ';
+			width: 36px;
+			height: 36px;
+			border: 1px solid $white;
+			transition: width 0.3s, height 0.3s;
+		}
+
+		&.grow {
+			&:after {
+				width: c(174px);
+				height: c(174px);
+			}
+		}
+	}
+
+	&.-hidden {
+		opacity: 0;
+	}
+}
