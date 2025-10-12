@@ -47,31 +47,6 @@ export default function Statement({ post, index, velocity = 0, ...rest }) {
 		return () => ctx.revert();
 	}, [index]);
 
-	/*
-	useEffect(() => {
-		if (!el.current) return;
-
-		const skew = Math.max(Math.min(velocity * 2, 40), -40);
-
-		gsap.to(el.current, {
-			skewX: skew,
-			transformOrigin: "center center",
-			duration: 0.3,
-			ease: "power2.out",
-			// markers: true,
-		});
-
-		if (Math.abs(velocity) < 0.05) {
-			gsap.to(el.current, {
-				skewX: 0,
-				duration: 0.6,
-				ease: "power3.out",
-				// markers: true,
-			});
-		}
-	}, [velocity]);
-	*/
-
 	return (
 		<div className="statement" data-index={index} {...rest}>
 			<div className="translate">
