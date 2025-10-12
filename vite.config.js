@@ -17,10 +17,10 @@ export default defineConfig({
 	},
 	server: {
 		proxy: {
-			'/wp-json': {
+			'/api': {
 				target: 'https://frontendtest.pleasecheck.me/index.php',
 				changeOrigin: true,
-				secure: false,
+				rewrite: (path) => path.replace(/^\/api/, '/wp-json/wp/v2'),
 			},
 		},
 	},
