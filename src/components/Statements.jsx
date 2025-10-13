@@ -1,21 +1,16 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import useLenis from "../hooks/useLenis";
 import { getPosts } from "../api/wordpress";
 import Statement from "./Statement";
 import "./Statements.scss";
 
 export default function Statements() {
-
 	const { lenisRef, ready } = useLenis();
-
 	const [posts, setPosts] = useState([]);
-	const [loading, setLoading] = useState(true);
 	const [velocity, setVelocity] = useState(0);
 
 	useEffect(() => {
-
 		if (!ready) return;
-
 		const lenis = lenisRef.current;
 
 		const onScroll = ({ velocity }) => {
@@ -23,28 +18,20 @@ export default function Statements() {
 		};
 
 		lenis.on("scroll", onScroll);
-
 		return () => lenis.off("scroll", onScroll);
-
 	}, [ready]);
 
 	useEffect(() => {
-
-		getPosts().then(setPosts).finally(() => setLoading(false));
-
+		getPosts().then(setPosts).catch(console.error);
 	}, []);
 
-	if (loading) return <p>Loading posts...</p>;
-	if (!posts.length) return <p>No posts found.</p>;
-
 	const groups = Array.from({ length: 2 }, (_, groupIdx) => (
-		<div key={`group-${groupIdx}`} className="statements-group">
+		<div key={`group-${groupIdx}`} className="statements">
 			{posts.map((post, idx) => (
 				<Statement
 					key={`${post.id}-${idx}-${groupIdx}`}
 					post={post}
 					index={idx}
-					groupIndex={groupIdx}
 					velocity={velocity}
 				/>
 			))}
