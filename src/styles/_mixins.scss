@@ -1,6 +1,6 @@
 @function c($i) {
 	$max: $i * 1.2;
-	$min: $i * 0.8;
+	$min: $i * 0.3;
 	$val: calc(($i * 100vw) / 1440px);
 	@return clamp($min, $val, $max);
 }
