@@ -89,11 +89,6 @@
 			transform: rotate(-9deg);
 		}
 	}
-
-	.rotate {
-		overflow: hidden;
-	}
-
 	span {
 		@include heading;
 		font-size: c(96px);
