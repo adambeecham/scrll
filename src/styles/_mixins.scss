@@ -17,10 +17,9 @@
 	}
 }
 
-@mixin container($max: 1520px) {
+@mixin container {
 	margin: 0 auto;
 	width: calc(100% - c(48px));
-	max-width: c($max);
 
 	@include above(782px) {
 		width: calc(100% - c(120px));
